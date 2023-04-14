@@ -32,6 +32,5 @@ public class MinioController {
             LOGGER.error("upload file exception {}", e.getMessage(), e);
             return CommonResult.failed(ResultCode.FAILED);
         }
-
     }
 }

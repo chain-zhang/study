@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,13 +32,13 @@ public class MinioFileServiceImpl implements FileService {
                 .object(filename)
                 .contentType(file.getContentType())
                 .stream(file.getInputStream(), file.getSize(), ObjectWriteArgs.MIN_MULTIPART_SIZE).build());
+        // 返回可访问的图片链接
         return readUrl + "/" + bucket + "/" + filename;
     }
 
     private String getFileName(String filename){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
         // 设置存储对象名称
-
         String dir = sdf.format(new Date());
         int idx = filename.lastIndexOf(".");
         if (idx >= 0) {
