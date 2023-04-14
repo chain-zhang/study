@@ -1,0 +1,13 @@
+server:
+  port: 9601
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+minio:
+  url: http://127.0.0.1:9000
+  bucket: cms
+  readUrl: http://127.0.0.1:9000
+  accessKey: xxxxxxxxxxxx
+  secretKey: xxxxxxxxxxxxxxxxxxx
